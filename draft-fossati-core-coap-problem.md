@@ -22,7 +22,6 @@ author:
 normative:
 
 informative:
-  RFC7807:
 
 --- abstract
 
@@ -46,7 +45,7 @@ response code) and the finer-grained details of the problem (using this
 format).
 
 The format presented is largely inspired by the Problem Details for HTTP APIs
-defined in {{RFC7807}}.
+defined in {{?RFC7807}}.
 
 ## Requirements Language
 
@@ -135,7 +134,7 @@ TODO when and how to define new problem types.
 
 # Security Considerations
 
-The security considerations of {{RFC7807}} apply in full.
+The security considerations of {{?RFC7807}} apply in full.
 
 # IANA Considerations
 
