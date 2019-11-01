@@ -92,7 +92,7 @@ parse the "detail" member for information; extensions {{sec-extensions}} are
 more suitable and less error-prone ways to obtain such information.
 
 Note that "instance" accepts relative URIs; this means that it must be resolved
-relative to the document's base URI, as per [RFC3986], Section 5.
+relative to the document's base URI, as per {{!RFC3986}}, Section 5.
 
 ## CDDL
 
