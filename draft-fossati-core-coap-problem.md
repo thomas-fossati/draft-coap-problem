@@ -1,131 +1,75 @@
-# Abstract
+---
+title: Problem Details For CoAP APIs
+abbrev: CoAP Problem
+docname: draft-fossati-core-coap-problem-latest
+category: STD
+
+ipr: trust200902
+area: ART
+workgroup: CoRE Working Group
+keyword: CoAP, API, Problem Details
+
+stand_alone: yes
+pi: [toc, sortrefs, symrefs]
+
+author:
+ -
+    ins: "T. Fossati"
+    name: "Thomas Fossati"
+    organization: "ARM"
+    email: thomas.fossati@arm.com
+
+normative:
+  RFC7049: cbor
+  RFC7252: coap
+  RFC8610: cddl
+
+informative:
+  RFC7807:
+
+--- abstract
 
 This document defines a "problem detail" as a way to carry machine-readable
 details of errors in a CoAP response to avoid the need to define new error
 response formats for CoAP APIs.
 
+--- middle
 
-# CDDL
+# Introduction
 
-The coap-problem-details-extension CDDL socket is used to add new information
-structures to the coap-problem-details root map.
+CoAP {{coap}} response codes are sometimes not sufficient to convey enough
+information about an error to be helpful.
 
-~~~
-coap-problem-details = {
-  type => uint,
-  ? title => text,
-  ? response-code => bstr .size 1,
-  ? detail => text,
-  ? instance => uri,
-  * $$coap-problem-details-extension,
-}
+This specification defines simple and extensible CBOR {{cbor}} format to suit
+this purpose.  It is designed to be reused by CoAP APIs, which can identify
+distinct "problem types" specific to their needs.
 
-type = 0
-title = 1
-response-code = 2
-detail = 3
-instance = 4
-~~~
+Thus, API clients can be informed of both the high-level error class (using
+the response code) and the finer-grained details of the problem (using this
+format).
 
-# IANA
+The format presented is largely inspired by the Problem Details for HTTP APIs
+defined in {{RFC7807}}.
 
-## New Content-Format
+## Requirements Language
 
-This document requests that IANA registers the following Content-Format to the
-"CoAP Content-Formats" subregistry, within the "Constrained RESTful
-Environments (CoRE) Parameters" registry, from the Expert Review space
-(0..255):
-~~~
-       +-------------------------------+----------+------+-----------+
-       | Media Type                    | Encoding | ID   | Reference |
-       +-------------------------------+----------+------+-----------+
-       | application/coap-problem+cbor | --       | TBD1 | RFCthis   |
-       +-------------------------------+----------+------+-----------+
-~~~
+{::boilerplate bcp14}
 
-## New Registries
 
-This document requests that IANA create the following new registries:
+# Security Considerations
 
-o  CoAP Problem Details (Section ...)
-o  CoAP Problem Types (Section ...)
+TODO Security
 
-### CoAP Problem Details Registry
 
-The "CoAP Problem Details" registry keeps track of the allocation of the
-integer values used as index values in the coap-problem-details CBOR map.
+# IANA Considerations
 
-Future registrations for this registry are to be made based on [RFC8126] as
-follows:
-~~~
-	      +------------------+-------------------------+
-              | Range            | Registration Procedures |
-              +------------------+-------------------------+
-              | 0-N              | Standards Action        |
-              |                  |                         |
-              | N+1-4294967295   | Specification Required  |
-              +------------------+-------------------------+
+This document has no IANA actions.
 
-                Table 1:  CoAP Problem Details Procedures
-~~~
 
-All negative values are reserved for Private Use.
 
-Initial registrations for the "CoAP Problem Details" registry are provided
-below.  Assignments consist of an integer index value, the item name, and a
-reference to the defining specification.
-~~~
-       +---------------+---------------------------+---------------+
-       | Index         | Item Name                 | Specification |
-       +---------------+---------------------------+---------------+
-       | 0             | type                      | RFC-THIS      |
-       |               |                           |               |
-       | 1             | title                     | RFC-THIS      |
-       |               |                           |               |
-       | 2             | response-code             | RFC-THIS      |
-       |               |                           |               |
-       | 3             | detail                    | RFC-THIS      |
-       |               |                           |               |
-       | 4             | instance                  | RFC-THIS      |
-       +---------------+---------------------------+---------------+
+--- back
 
-             Table 2: CoAP Problem Details Inital Registrations
-~~~
+# Acknowledgments
+{:numbered="false"}
 
-### CoAP Problem Types Registry
-
-The "CoAP Problem Details" registry keeps track of the problem type values.
-
-Future registrations for this registry are to be made based on [RFC8126] as
-follows:
-~~~
-	      +------------------+-------------------------+
-              | Range            | Registration Procedures |
-              +------------------+-------------------------+
-              | 0-M              | Standards Action        |
-              |                  |                         |
-              | M+1-4294967295   | Specification Required  |
-              +------------------+-------------------------+
-
-                Table 3:  CoAP Problem Details Proceedures
-~~~
-
-This specification reserves the use of one value as a problem type:
-
-The 0 value, when used as a problem type, indicates that the problem has no
-additional semantics beyond that of the CoAP response code.
-
-The initial registration for the "CoAP Problem Types" registry is provided
-below.  Assignments consist of an integer index value, the item name, and a
-reference to the defining specification.
-~~~
-  +---------------+-------------------------------+---------------+
-  | Value         | Description                   | Specification |
-  +---------------+-------------------------------+---------------+
-  | 0             | The problem has no additional | RFC-THIS      |
-  |               | semantics beyond that of the  |               |
-  |               | CoAP response code            |               |
-  +---------------+-------------------------------+---------------+
- 
-             Table 4: CoAP Problem Types Inital Registration
-~~~
+TODO acknowledge.
