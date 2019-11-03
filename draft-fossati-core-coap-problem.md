@@ -19,10 +19,6 @@ author:
     organization: "ARM"
     email: thomas.fossati@arm.com
 
-normative:
-
-informative:
-
 --- abstract
 
 This document defines a "problem detail" as a way to carry machine-readable
@@ -87,8 +83,8 @@ CoAP information.  Generic CoAP software will still use the CoAP response code.
 
 The "detail" member, if present, ought to focus on helping the client correct
 the problem, rather than giving debugging information.  Consumers SHOULD NOT
-parse the "detail" member for information; extensions {{sec-extensions}} are
-more suitable and less error-prone ways to obtain such information.
+parse the "detail" member for information; extensions (see {{sec-extensions}})
+are more suitable and less error-prone ways to obtain such information.
 
 Note that "instance" accepts relative URIs; this means that it must be resolved
 relative to the document's base URI, as per {{!RFC3986}}, Section 5.
@@ -99,7 +95,7 @@ The definition in CDDL format {{!RFC8610}} is provided in {{fig-cddl}}.
 
 ~~~
 coap-problem-details = {
-  type => uint,
+  type => int,
   ? title => text,
   ? response-code => uint .size 1,
   ? detail => text,
@@ -115,7 +111,15 @@ instance = 4
 ~~~
 {: #fig-cddl title="CoAP Problem Details: CDDL Definition"}
 
-## Extending CoAP Problem Details
+# Extensibility
+
+The format presented is extensible at two separate points that allow the
+definition of:
+
+* New error type values (see {{sec-new-types}}); and
+* New attributes (see {{sec-extensions}}).
+
+## Defining New Problem Attributes
 {: #sec-extensions}
 
 Problem type definitions MAY extend the problem details object with additional
@@ -128,9 +132,28 @@ information in the future.
 CoAP Problem Details can be extended via the coap-problem-details-extension
 CDDL socket (see Section 3.9 of {{!RFC8610}}.
 
-# Defining New Problem Types
+## Defining New Problem Types
+{: #sec-new-types}
 
-TODO when and how to define new problem types.
+For now, this section only lists a bunch of requirements that need further
+discussion.
+
+* Support for private use:
+  * An organisation (project, private company, SDO) wants to reserve a block of
+    some size and does whatever it wants with it.  Clashes are not be possible
+    if everyone behaves.
+  * A completely private and self-contained project, wants to allocate its own
+    set of error codes.  Clashes are possible, but irrelevant as long as the
+    API does not transpire.
+* Support for "official" protocols, which need:
+  * Clean separation from the private use;
+  * Clearly defined registration procedures;
+  * Built-in delegation: no expert should be overlooking an immense and very
+    diverse semantic space.  We should instead be able to delegate expert
+    review to protocol-specific subregistries — a la ACME, JMAP, TRANS.
+
+The main difference with {{RFC7807}} is that, because we want the encoding to
+be very efficient, we also avoid using URNs to create separate namespaces.
 
 # Security Considerations
 
@@ -164,9 +187,9 @@ integer values used as index values in the coap-problem-details CBOR map.
 Future registrations for this registry are to be made based on {{!RFC8126}} as
 described in {{tab-details}}.
 
-   | Range          | Registration Procedures |
-   | 0-N            | Standards Action        |
-   | N+1-4294967295 | Specification Required  |
+   | Range            | Registration Procedures |
+   | 0...N            | Standards Action        |
+   | N+1...4294967295 | Specification Required  |
 {: #tab-details title="CoAP Problem Details Registration Procedures"}
 
 All negative values are reserved for Private Use.
@@ -176,11 +199,11 @@ Initial registrations for the "CoAP Problem Details" registry are provided in
 name, and a reference to the defining specification.
 
    | Index | Index Name    | Specification |
-   | 0     | type          | RFC-THIS      |
-   | 1     | title         | RFC-THIS      |
-   | 2     | response-code | RFC-THIS      |
-   | 3     | detail        | RFC-THIS      |
-   | 4     | instance      | RFC-THIS      |
+   | 0     | type          | RFCthis       |
+   | 1     | title         | RFCthis       |
+   | 2     | response-code | RFCthis       |
+   | 3     | detail        | RFCthis       |
+   | 4     | instance      | RFCthis       |
 {: #tab-details-init title="CoAP Problem Details Initial Registrations"}
 
 ### CoAP Problem Types Registry
@@ -191,10 +214,12 @@ The "CoAP Problem Types" registry keeps track of the problem type values.
 Future registrations for this registry are to be made based on {{!RFC8126}} as
 described in {{tab-types}}.
 
-   | Range          | Registration Procedures |
-   | 0-M            | Standards Action        |
-   | M+1-4294967295 | Specification Required  |
+   | Range            | Registration Procedures |
+   | 0...M            | Standards Action        |
+   | M+1...4294967295 | Specification Required  |
 {: #tab-types title="CoAP Problem Types Registration Procedures"}
+
+All negative values are reserved for Private Use.
 
 This specification reserves the use of one value as a problem type: The 0
 value, when used as a problem type, indicates that the problem has no
@@ -204,8 +229,8 @@ The initial registration for the "CoAP Problem Types" registry is provided in
 {{tab-types-init}}.  Assignments consist of an integer index value, the item
 name, and a reference to the defining specification.
 
-   | Value | Description    | Specification |
-   | 0     | The problem has no additional semantics beyond that of the CoAP response code | RFC-THIS |
+   | Value | Description | Specification |
+   | 0     | The problem has no additional semantics beyond that of the CoAP response code | RFCthis |
 {: #tab-types-init title="CoAP Problem Types Initial Registrations"}
 
 --- back
