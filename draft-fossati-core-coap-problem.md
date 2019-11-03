@@ -142,7 +142,7 @@ discussion.
   * An organisation (project, private company, SDO) wants to reserve a block of
     some size and does whatever it wants with it.  Clashes are not be possible
     if everyone behaves.
-  * A completely private and self-contained project, wants to allocate its own
+  * A completely private and self-contained project wants to allocate its own
     set of error codes.  Clashes are possible, but irrelevant as long as the
     API does not transpire.
 * Support for "official" protocols, which need:
@@ -154,6 +154,21 @@ discussion.
 
 The main difference with {{RFC7807}} is that, because we want the encoding to
 be very efficient, we also avoid using URNs to create separate namespaces.
+This means we need to partition a big but finite code-point space, which is a
+delicate act of balance.   One possible partitioning scheme is as follows:
+
+~~~
+
+                    -M               0                              2^n
+
+  ||-----------------|---------------|-------------------------------||
+        far west       organisations   
+
+   `--------------------------------'`-------------------------------'
+
+		 private use                     public use
+
+~~~
 
 # Security Considerations
 
