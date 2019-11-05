@@ -51,9 +51,11 @@ defined in {{?RFC7807}}.
 
 A CoAP Problem Details is encoded as a CBOR map with the following members:
 
-* "type" (uint) - code that uniquely identifies the problem type.  When this
-  member is not present, its value is assumed to be 0, meaning that the problem
-  has no additional semantics beyond that of the CoAP response code.
+* "ns" (int) - code defining the namespace under which the "type" field needs
+  to be interpreted.  This is a mandatory field.
+
+* "type" (uint) - code that identifies the problem type within the namespace.
+  This is a mandatory field.
 
 * "title" (text) - A short, human-readable summary of the problem type.  It
   SHOULD NOT change from occurrence to occurrence of the problem.
@@ -67,10 +69,9 @@ A CoAP Problem Details is encoded as a CBOR map with the following members:
 * "instance" (uri) - A URI reference that identifies the specific occurrence of
   the problem.  It may or may not yield further information if dereferenced.
 
-Consumers MUST use "type" as the primary identifier for the problem type; the
-"title" string is advisory and included only for users who are not aware of the
-semantics of the URI and do not have the ability to discover them (e.g.,
-offline log analysis).
+Consumers MUST use "ns" and "type" as primary identifiers for the problem type;
+the "title" string is advisory and included only for consumers who are not
+aware of the semantics of the "ns" and "type" values.
 
 The "response-code" member, if present, is only advisory; it conveys the CoAP
 response code used for the convenience of the consumer.  Generators MUST use
@@ -83,8 +84,9 @@ CoAP information.  Generic CoAP software will still use the CoAP response code.
 
 The "detail" member, if present, ought to focus on helping the client correct
 the problem, rather than giving debugging information.  Consumers SHOULD NOT
-parse the "detail" member for information; extensions (see {{sec-extensions}})
-are more suitable and less error-prone ways to obtain such information.
+parse the "detail" member for information; extensions (see
+{{sec-new-attributes}}) are more suitable and less error-prone ways to obtain
+such information.
 
 Note that "instance" accepts relative URIs; this means that it must be resolved
 relative to the document's base URI, as per {{!RFC3986}}, Section 5.
@@ -95,7 +97,8 @@ The definition in CDDL format {{!RFC8610}} is provided in {{fig-cddl}}.
 
 ~~~
 coap-problem-details = {
-  type => int,
+  ns => int,
+  type => uint,
   ? title => text,
   ? response-code => uint .size 1,
   ? detail => text,
@@ -103,27 +106,50 @@ coap-problem-details = {
   * $$coap-problem-details-extension,
 }
 
-type = 0
-title = 1
-response-code = 2
-detail = 3
-instance = 4
+ns = 0
+type = 1
+title = 2
+response-code = 3
+detail = 4
+instance = 5
 ~~~
 {: #fig-cddl title="CoAP Problem Details: CDDL Definition"}
 
 # Extensibility
 
-The format presented is extensible at two separate points that allow the
+The format presented can be extended at two separate points that allow the
 definition of:
 
 * New error type values (see {{sec-new-types}}); and
-* New attributes (see {{sec-extensions}}).
+* New error attributes (see {{sec-new-attributes}}).
+
+## Defining New Problem Types
+{: #sec-new-types}
+
+The mechanism for defining new problem types is designed to allow private use,
+for example by organisations or projects, while at the same time supporting the
+use of this error format in public protocols and APIs, and ease of transition
+between the two (for example if an API is first developed internally and then
+open-sourced).  Another critical design objective is to enable delegating the
+administration of the code-points space to entities (and experts) that are
+"closer" to the actual usage and meaning of the code-points.  We want to
+explicitly avoid having expert looking over a very big and diverse semantic
+space.
+
+To meet these goal, new problem types are always defined (and have a meaning)
+within a namespace.  The namespace is itself partitioned in three separate
+ranges: a completely private space, one devoted to private organisations and
+projects, and a third one used for public APIs and protocols.  The rules for
+registering a new namespace are outlined in {{iana-namespace-registry}}.
+
+Moving a set of error types from the private to the public space need only
+changing the namespace identifier, while leaving all error types the same.
 
 ## Defining New Problem Attributes
-{: #sec-extensions}
+{: #sec-new-attributes}
 
 Problem type definitions MAY extend the problem details object with additional
-members to convey additional, problem-specific information.
+attributes to convey additional, problem-specific information.
 
 Clients consuming problem details MUST ignore any such extensions that they
 don't recognize; this allows problem types to evolve and include additional
@@ -131,44 +157,6 @@ information in the future.
 
 CoAP Problem Details can be extended via the coap-problem-details-extension
 CDDL socket (see Section 3.9 of {{!RFC8610}}.
-
-## Defining New Problem Types
-{: #sec-new-types}
-
-For now, this section only lists a bunch of requirements that need further
-discussion.
-
-* Support for private use:
-  * An organisation (project, private company, SDO) wants to reserve a block of
-    some size and does whatever it wants with it.  Clashes are not be possible
-    if everyone behaves.
-  * A completely private and self-contained project wants to allocate its own
-    set of error codes.  Clashes are possible, but irrelevant as long as the
-    API does not transpire.
-* Support for "official" protocols, which need:
-  * Clean separation from the private use;
-  * Clearly defined registration procedures;
-  * Built-in delegation: no expert should be overlooking an immense and very
-    diverse semantic space.  We should instead be able to delegate expert
-    review to protocol-specific subregistries — a la ACME, JMAP, TRANS.
-
-The main difference with {{RFC7807}} is that, because we want the encoding to
-be very efficient, we also avoid using URNs to create separate namespaces.
-This means we need to partition a big but finite code-point space, which is a
-delicate act of balance.   One possible partitioning scheme is as follows:
-
-~~~
-
-                    -M               0                              2^n
-
-  ||-----------------|---------------|-------------------------------||
-        far west       organisations   
-
-   `--------------------------------'`-------------------------------'
-
-		 private use                     public use
-
-~~~
 
 # Security Considerations
 
@@ -190,8 +178,8 @@ Environments (CoRE) Parameters" registry, from the Expert Review space
 
 This document requests that IANA create the following new registries:
 
+* CoAP Problem Namespaces ({{iana-namespace-registry}})
 * CoAP Problem Details ({{iana-details-registry}})
-* CoAP Problem Types ({{iana-types-registry}})
 
 ### CoAP Problem Details Registry
 {: #iana-details-registry}
@@ -221,36 +209,34 @@ name, and a reference to the defining specification.
    | 4     | instance      | RFCthis       |
 {: #tab-details-init title="CoAP Problem Details Initial Registrations"}
 
-### CoAP Problem Types Registry
-{: #iana-types-registry}
+### CoAP Problem Namespace Registry
+{: #iana-namespace-registry}
 
-The "CoAP Problem Types" registry keeps track of the problem type values.
+The "CoAP Problem Types" registry keeps track of the problem namespace values.
 
 Future registrations for this registry are to be made based on {{!RFC8126}} as
 described in {{tab-types}}.
 
    | Range            | Registration Procedures |
+   | -L...-1          | First Come First Served |
    | 0...M            | Standards Action        |
    | M+1...4294967295 | Specification Required  |
 {: #tab-types title="CoAP Problem Types Registration Procedures"}
 
-All negative values are reserved for Private Use.
+All negative values less than L are reserved for Private Use.
 
-This specification reserves the use of one value as a problem type: The 0
-value, when used as a problem type, indicates that the problem has no
-additional semantics beyond that of the CoAP response code.
-
-The initial registration for the "CoAP Problem Types" registry is provided in
-{{tab-types-init}}.  Assignments consist of an integer index value, the item
+The initial registration for the "CoAP Problem Namespace" registry is provided
+in {{tab-types-init}}.  Assignments consist of an integer index value, the item
 name, and a reference to the defining specification.
 
    | Value | Description | Specification |
-   | 0     | The problem has no additional semantics beyond that of the CoAP response code | RFCthis |
-{: #tab-types-init title="CoAP Problem Types Initial Registrations"}
+   | 0     | The "global" namespace | RFCthis |
+{: #tab-types-init title="CoAP Problem Namespace Initial Registrations"}
 
 --- back
 
 # Acknowledgments
 {: numbered="no"}
 
-Mark Nottingham and Erik Wilde, authors of RFC 7807.
+Mark Nottingham and Erik Wilde, authors of RFC 7807.  Carsten Bormann and Klaus
+Hartke for discussion around the problem space and requirements.
