@@ -252,4 +252,4 @@ name, and a reference to the defining specification.
 {: numbered="no"}
 
 Mark Nottingham and Erik Wilde, authors of RFC 7807.  Carsten Bormann and Klaus
-Hartke for discussion around the problem space and requirements.
+Hartke for discussion on extensibility requirements.
