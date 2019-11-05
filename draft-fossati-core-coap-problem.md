@@ -93,7 +93,8 @@ relative to the document's base URI, as per {{!RFC3986}}, Section 5.
 
 ## CDDL
 
-The definition in CDDL format {{!RFC8610}} is provided in {{fig-cddl}}.
+The definition in CDDL format {{!RFC8610}} of a Problem Details for CoAP is
+provided in {{fig-cddl}}.
 
 ~~~
 coap-problem-details = {
@@ -130,24 +131,25 @@ The mechanism for defining new problem types is designed to allow private use,
 for example by organisations or projects, while at the same time supporting the
 use of this error format in public protocols and APIs, as well as ease of
 transition between the two -- for example if an API is first developed
-internally in an organisation and then open-sourced.  Another critical design
+internally to an organisation and then open-sourced.  Another critical design
 objective is to enable delegating the administration of the code-points space
-to entities (and experts) that are "closer" to the actual usage and meaning of
-the code-points. In fact, we want to explicitly avoid having experts looking
-over a very big and diverse semantic space.
+to entities (and experts) that are "closer" to the actual usage and intended
+meaning of the code-points.  In fact, an explicit desiderata is to avoid having
+experts looking over a very big and diverse semantic space.
 
 To meet these goal, new problem types are always defined (and have a meaning)
-within a namespace.  The namespace is itself partitioned in three separate
-ranges: a completely private space, one devoted to private organisations and
-projects, and a third one used for public APIs and protocols.  The rules for
-registering a new namespace are outlined in {{iana-namespace-registry}}.
+within a namespace.  The namespace range is itself partitioned in three
+separate sub-ranges: a completely private space, one devoted to private
+organisations and projects, and a third one used for public APIs and protocols.
+The rules for registering a new namespace are outlined in
+{{iana-namespace-registry}}.
 
-The registration procedures for new problem types is not defined in this
-document.  As guiding principles, new problem type definitions should document:
+The registration procedures for new problem types are not defined in this
+document.  At a minimum, though, new problem type definitions SHOULD document:
 
 1. A parent namespace;
-2. Their code-point;
-3. A title that appropriately describes it (think short); and
+2. Their own code-point;
+3. A title that appropriately describes the problem type (think short); and
 4. The CoAP response-code for it to be used with.
 
 A problem type definition may specify additional attributes on the
@@ -190,8 +192,8 @@ Environments (CoRE) Parameters" registry, from the Expert Review space
 
 This document requests that IANA create the following new registries:
 
-* CoAP Problem Namespaces ({{iana-namespace-registry}})
-* CoAP Problem Details ({{iana-details-registry}})
+* CoAP Problem Namespaces ({{iana-namespace-registry}});
+* CoAP Problem Details ({{iana-details-registry}}).
 
 ### CoAP Problem Details Registry
 {: #iana-details-registry}
@@ -252,4 +254,4 @@ name, and a reference to the defining specification.
 {: numbered="no"}
 
 Mark Nottingham and Erik Wilde, authors of RFC 7807.  Carsten Bormann and Klaus
-Hartke for discussion on extensibility requirements.
+Hartke for discussion on the problem space and extensibility requirements.
