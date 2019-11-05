@@ -128,13 +128,13 @@ definition of:
 
 The mechanism for defining new problem types is designed to allow private use,
 for example by organisations or projects, while at the same time supporting the
-use of this error format in public protocols and APIs, and ease of transition
-between the two (for example if an API is first developed internally and then
-open-sourced).  Another critical design objective is to enable delegating the
-administration of the code-points space to entities (and experts) that are
-"closer" to the actual usage and meaning of the code-points.  We want to
-explicitly avoid having expert looking over a very big and diverse semantic
-space.
+use of this error format in public protocols and APIs, as well as ease of
+transition between the two -- for example if an API is first developed
+internally in an organisation and then open-sourced.  Another critical design
+objective is to enable delegating the administration of the code-points space
+to entities (and experts) that are "closer" to the actual usage and meaning of
+the code-points. In fact, we want to explicitly avoid having experts looking
+over a very big and diverse semantic space.
 
 To meet these goal, new problem types are always defined (and have a meaning)
 within a namespace.  The namespace is itself partitioned in three separate
@@ -142,8 +142,20 @@ ranges: a completely private space, one devoted to private organisations and
 projects, and a third one used for public APIs and protocols.  The rules for
 registering a new namespace are outlined in {{iana-namespace-registry}}.
 
-Moving a set of error types from the private to the public space need only
-changing the namespace identifier, while leaving all error types the same.
+The registration procedures for new problem types is not defined in this
+document.  As guiding principles, new problem type definitions should document:
+
+1. A parent namespace;
+2. Their code-point;
+3. A title that appropriately describes it (think short); and
+4. The CoAP response-code for it to be used with.
+
+A problem type definition may specify additional attributes on the
+problem details map (see {{sec-new-attributes}}).
+
+(Note: moving a set of error types from the private to the public space need
+only changing the namespace identifier, while leaving all error types the
+same.)
 
 ## Defining New Problem Attributes
 {: #sec-new-attributes}
@@ -212,7 +224,8 @@ name, and a reference to the defining specification.
 ### CoAP Problem Namespace Registry
 {: #iana-namespace-registry}
 
-The "CoAP Problem Types" registry keeps track of the problem namespace values.
+The "CoAP Problem Namespace" registry keeps track of the problem namespace
+values.
 
 Future registrations for this registry are to be made based on {{!RFC8126}} as
 described in {{tab-types}}.
