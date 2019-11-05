@@ -216,11 +216,12 @@ Initial registrations for the "CoAP Problem Details" registry are provided in
 name, and a reference to the defining specification.
 
    | Index | Index Name    | Specification |
-   | 0     | type          | RFCthis       |
-   | 1     | title         | RFCthis       |
-   | 2     | response-code | RFCthis       |
-   | 3     | detail        | RFCthis       |
-   | 4     | instance      | RFCthis       |
+   | 0     | ns            | RFCthis       |
+   | 1     | type          | RFCthis       |
+   | 2     | title         | RFCthis       |
+   | 3     | response-code | RFCthis       |
+   | 4     | detail        | RFCthis       |
+   | 5     | instance      | RFCthis       |
 {: #tab-details-init title="CoAP Problem Details Initial Registrations"}
 
 ### CoAP Problem Namespace Registry
