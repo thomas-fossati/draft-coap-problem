@@ -32,7 +32,7 @@ response formats for CoAP APIs.
 CoAP {{!RFC7252}} response codes are sometimes not sufficient to convey enough
 information about an error to be helpful.
 
-This specification defines simple and extensible CBOR {{!RFC7049}} format to
+This specification defines a simple and extensible CBOR {{!RFC7049}} format to
 suit this purpose.  It is designed to be reused by CoAP APIs, which can
 identify distinct "problem types" specific to their needs.
 
