@@ -51,11 +51,11 @@ defined in {{?RFC7807}}.
 
 A CoAP Problem Details is encoded as a CBOR map with the following members:
 
-* "ns" (int) - code defining the namespace under which the "type" field needs
-  to be interpreted.  This is a mandatory field.
+* "ns" (int) - A code-point that defines the namespace under which the "type"
+  field needs to be interpreted.  This is a mandatory field.
 
-* "type" (uint) - code that identifies the problem type within the namespace.
-  This is a mandatory field.
+* "type" (uint) - A code-point that identifies the problem type within the
+  namespace.  This is a mandatory field.
 
 * "title" (text) - A short, human-readable summary of the problem type.  It
   SHOULD NOT change from occurrence to occurrence of the problem.
