@@ -181,7 +181,7 @@ The security considerations of {{?RFC7807}} apply in full.
 ## Registration of a Content-Format identifier for application/coap-problem+cbor
 
 This document requests that IANA registers the following Content-Format to the
-"CoAP Content-Formats" subregistry, within the "Constrained RESTful
+"CoAP Content-Formats" sub-registry, within the "Constrained RESTful
 Environments (CoRE) Parameters" registry, from the Expert Review space
 (0..255):
 
