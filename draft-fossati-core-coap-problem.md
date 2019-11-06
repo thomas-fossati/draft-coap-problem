@@ -174,7 +174,8 @@ CDDL socket (see Section 3.9 of {{!RFC8610}}.
 
 # Security Considerations
 
-The security considerations of {{?RFC7807}} apply in full.
+The security and privacy considerations outlined in Section 5 of {{?RFC7807}}
+apply in full.
 
 # IANA Considerations
 
