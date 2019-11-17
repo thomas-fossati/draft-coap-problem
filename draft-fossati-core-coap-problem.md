@@ -170,7 +170,7 @@ don't recognize; this allows problem types to evolve and include additional
 information in the future.
 
 CoAP Problem Details can be extended via the coap-problem-details-extension
-CDDL socket (see Section 3.9 of {{!RFC8610}}.
+CDDL socket (see Section 3.9 of {{!RFC8610}}).
 
 # Security Considerations
 
