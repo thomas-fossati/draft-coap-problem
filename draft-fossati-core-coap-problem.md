@@ -122,8 +122,8 @@ instance = 5
 The format presented can be extended at two separate points that allow the
 definition of:
 
-* New error type values (see {{sec-new-types}}); and
-* New error attributes (see {{sec-new-attributes}}).
+* New problem type values (see {{sec-new-types}}); and
+* New problem attributes (see {{sec-new-attributes}}).
 
 ## Defining New Problem Types
 {: #sec-new-types}
