@@ -80,7 +80,8 @@ software that does not understand this format still behaves correctly.
 Consumers can use the response-code member to determine what the original
 response code used by the generator was, in cases where it has been changed
 (e.g., by an intermediary or cache), and when message payloads persist without
-CoAP information.  Generic CoAP software will still use the CoAP response code.
+CoAP information (e.g., in an events log or analytics database).  Generic CoAP
+software will still use the CoAP response code.
 
 The "detail" member, if present, ought to focus on helping the client correct
 the problem, rather than giving debugging information.  Consumers SHOULD NOT
