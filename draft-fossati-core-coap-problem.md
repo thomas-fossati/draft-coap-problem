@@ -156,9 +156,9 @@ document.  At a minimum, though, new problem type definitions SHOULD document:
 A problem type definition may specify additional attributes on the
 problem details map (see {{sec-new-attributes}}).
 
-(Note: moving a set of error types from the private to the public space needs
-only changing the namespace identifier while leaving all error types the
-same.)
+(Note on renumbering: moving a set of error types from the private to the
+public space needs only changing the namespace identifier while leaving all
+error types the same.)
 
 ## Defining New Problem Attributes
 {: #sec-new-attributes}
