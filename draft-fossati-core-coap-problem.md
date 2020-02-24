@@ -103,22 +103,7 @@ The definition in CDDL format {{!RFC8610}} of a Problem Details for CoAP is
 provided in {{fig-cddl}}.
 
 ~~~
-coap-problem-details = {
-  ns => int,
-  type => uint,
-  ? title => text,
-  ? response-code => uint .size 1,
-  ? detail => text,
-  ? instance => uri,
-  * $$coap-problem-details-extension,
-}
-
-ns = 0
-type = 1
-title = 2
-response-code = 3
-detail = 4
-instance = 5
+{::include coap-problem-details.cddl}
 ~~~
 {: #fig-cddl title="CoAP Problem Details: CDDL Definition"}
 
@@ -260,8 +245,82 @@ The registry is initially empty.
 
 --- back
 
+# Examples
+
+This section presents a series of examples in CBOR diagnostic notation
+{{RFC7049}}.  The examples are fictitious.  No identification with actual
+products is intended or should be inferred.  All examples involve the same CoAP
+problem type (5, with pretend semantics "unknown key id") defined in the
+private namespace "-33455".
+
+<!--
+The reader can think of it as a distinct error condition that might happen in a
+private RESTful API for crypto key management that is deployed inside an
+enterprise network.
+-->
+
+## Minimalist
+
+The example in {{fig-private-ns-minimal}} has the most compact representation.
+By avoiding any non-mandatory field, the Problem encodes to seven bytes in
+total.  This is suitable for a constrained receiver that happens to have
+precise knowledge of the semantics associated with the namespace and type
+code-points.
+
+~~~
+{
+    / ns /   0: -33455, / a private namespace /
+    / type / 1: 5       / "unknown key id" semantics /
+}
+~~~
+{: #fig-private-ns-minimal title="Private Namespace: Minimal Payload"}
+
+## Full-Fledged
+
+The example in {{fig-private-ns-full}} has all the mandatory as well as the
+optional fields populated.  This format is appropriate for an unconstrained
+receiver (for example, an edge gateway forwarding to a log server), that needs
+to gather as much contextual information as possible, including details about
+the error condition, the associated CoAP response code, and even the URL
+describing the specific error instance.
+
+~~~
+{
+    / ns /            0: -33455,
+    / type /          1: 5,
+    / title /         2: "unknown key id",
+    / response-code / 3: 132, / 4.04 Not Found /
+    / detail /        4: "Key with id 0x01020304 not registered",
+    / instance /      5: 32("https://private-api.example/errors/5")
+}
+~~~
+{: #fig-private-ns-full title="Private Namespace: Full Payload"}
+
+## Full-Fledged with Extensions
+
+The last example ({{fig-private-ns-full-ext}}) makes use of the built-in
+extension mechanism described in {{sec-new-attributes}} to provide some context
+specific information - in this made up scenario a list of possible key ids is
+appended.  This richer format might be enabled for debug / tracing purposes,
+possibly on a per-transaction basis.  Note that the map index for key-ids key
+is minted from the private (negative) space.
+
+~~~
+{
+    / ns /            0: -33455,
+    / type /          1: 5,
+    / title /         2: "unknown key id",
+    / response-code / 3: 132, / 4.04 Not Found /
+    / detail /        4: "Key with id 0x01020304 not registered",
+    / instance /      5: 32("https://private-api.example/errors/5"),
+    / key-ids /       -1: [ 0x01020300, 0x01020301, 0x01020302 ]
+}
+~~~
+{: #fig-private-ns-full-ext title="Private Namespace: Full Payload and Extension"}
+
 # Acknowledgments
 {: numbered="no"}
 
 Mark Nottingham and Erik Wilde, authors of RFC 7807.  Carsten Bormann and Klaus
 Hartke for discussion on the problem space and extensibility requirements.
+
