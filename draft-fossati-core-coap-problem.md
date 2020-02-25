@@ -248,13 +248,15 @@ described in {{tab-types}}.
 
 All negative values less than L are reserved for Private Use.
 
-The initial registration for the "CoAP Problem Namespace" registry is provided
-in {{tab-types-init}}.  Assignments consist of an integer index value, the item
-name, and a reference to the defining specification.
+The "CoAP Problem Namespace" registry has three columns as shown in
+{{tab-ns-fmt}}.  Assignments consist of an integer index value, the item
+description, and a reference to the defining specification.
 
    | Value | Description | Specification |
-   | 0     | The "global" namespace | RFCthis |
-{: #tab-types-init title="CoAP Problem Namespace Initial Registrations"}
+   | empty | empty | empty |
+{: #tab-ns-fmt title="CoAP Problem Namespace Registry"}
+
+The registry is initially empty.
 
 --- back
 
