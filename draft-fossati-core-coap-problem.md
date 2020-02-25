@@ -279,7 +279,7 @@ code-points.
 
 The example in {{fig-private-ns-full}} has all the mandatory as well as the
 optional fields populated.  This format is appropriate for an unconstrained
-receiver (for example, an edge gateway forwarding to a log server), that needs
+receiver.  For example, an edge gateway forwarding to a log server that needs
 to gather as much contextual information as possible, including details about
 the error condition, the associated CoAP response code, and even the URL
 describing the specific error instance.
@@ -301,9 +301,9 @@ describing the specific error instance.
 The last example ({{fig-private-ns-full-ext}}) makes use of the built-in
 extension mechanism described in {{sec-new-attributes}} to provide some context
 specific information - in this made up scenario a list of possible key ids is
-appended.  This richer format might be enabled for debug / tracing purposes,
-possibly on a per-transaction basis.  Note that the map index for key-ids key
-is minted from the private (negative) space.
+provided to the receiving end.  This richer format might be enabled for debug
+or tracing purposes, possibly on a per-transaction basis.  Note that the map
+index for key-ids key is minted from the private (negative) space.
 
 ~~~
 {
@@ -317,6 +317,23 @@ is minted from the private (negative) space.
 }
 ~~~
 {: #fig-private-ns-full-ext title="Private Namespace: Full Payload and Extension"}
+
+# Doing it with CoRAL
+
+CoRAL {{?I-D.ietf-core-coral}} provides a way to address the same problem that
+is solved by the format described in this document.  (Refer to section 5.2.3 of
+{{?I-D.ietf-core-coral}} for initial discussion around CoRAL Error Responses.)
+
+By abstracting the serialization aspects (CBOR, JSON, etc.), the transport
+protocol (HTTP, CoAP, etc.) and its response codes, while also providing
+compression of the involved resources, CoRAL can potentially support a more
+general solution than the one discussed here, in particular one that also
+supersedes {{?RFC7807}}.
+
+<!--
+Note that at the time of this writing, a CoRAL based solution has not been
+fleshed out yet.
+-->
 
 # Acknowledgments
 {: numbered="no"}
