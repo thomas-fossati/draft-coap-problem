@@ -156,8 +156,8 @@ error types the same.)
 Problem type definitions MAY extend the problem details object with additional
 attributes to convey additional, problem-specific information.
 
-Clients consuming problem details MUST ignore any such extensions that they
-don't recognize; this allows problem types to evolve and include additional
+Clients consuming problem details MUST ignore any such extensions that they do
+not recognize; this allows problem types to evolve and include additional
 information in the future.
 
 CoAP Problem Details can be extended via the coap-problem-details-extension
