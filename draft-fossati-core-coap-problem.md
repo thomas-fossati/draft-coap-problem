@@ -246,6 +246,7 @@ The registry is initially empty.
 --- back
 
 # Examples
+{: #sec-examples}
 
 This section presents a series of examples in CBOR diagnostic notation
 {{RFC7049}}.  The examples are fictitious.  No identification with actual
@@ -330,14 +331,104 @@ compression of the involved resources, CoRAL can potentially support a more
 general solution than the one discussed here, in particular one that also
 supersedes {{?RFC7807}}.
 
-<!--
-Note that at the time of this writing, a CoRAL based solution has not been
-fleshed out yet.
--->
+## Examples
+{: #sec-coral-examples}
+
+In this section, the examples from {{sec-examples}} are converted to CoRAL.
+
+The main differences are:
+
+* CoRAL is using an array of alternating keys and values instead of a map with
+  array values to get a multi-dict;
+* CoRAL uses {{?I-D.ietf-core-href}} as an alternative to URIs that is
+  optimized for constrained nodes;
+* CoRAL uses its own code-point allocation scheme.
+
+### Minimalist
+
+* Textual format:
+
+~~~
+#using <http://example.org/vocabulary/problem-details#>
+#using ex = <http://vocabulary.private-api.example/#>
+
+type            ex:unknown-key-id
+~~~
+
+* CBOR serialisation:
+
+~~~
+[
+    / type / 1, 5       / "unknown key id" semantics /
+]
+~~~
+
+### Full-Fledged
+
+* Textual format:
+
+~~~
+#using <http://example.org/vocabulary/problem-details#>
+#using ex = <http://vocabulary.private-api.example/#>
+
+type            ex:unknown-key-id
+title           "unknown key id"
+response-code   132
+detail          "Key with id 0x01020304 not registered"
+instance        <https://private-api.example/errors/5>
+~~~
+
+* CBOR serialisation:
+
+~~~
+[
+    / type /          1, 5,
+    / title /         2, "unknown key id",
+    / response-code / 3, 132, / 4.04 Not Found /
+    / detail /        4, "Key with id 0x01020304 not registered",
+    / instance /      5, [1, "https", 2, "private-api.example", 6, "errors", 6, "5"]
+]
+~~~
+
+### Full-Fledged with Extensions
+
+* Textual format:
+
+~~~
+#using <http://example.org/vocabulary/problem-details#>
+#using ex = <http://vocabulary.private-api.example/#>
+
+type            5
+title           "unknown key id"
+response-code   132
+detail          "Key with id 0x01020304 not registered"
+instance        <https://private-api.example/errors/5>
+ex:key-id       0x01020300
+ex:key-id       0x01020301
+ex:key-id       0x01020302
+~~~
+
+* CBOR serialisation:
+
+~~~
+[
+    / type /          1, 5,
+    / title /         2, "unknown key id",
+    / response-code / 3, 132, / 4.04 Not Found /
+    / detail /        4, "Key with id 0x01020304 not registered",
+    / instance /      5, [1, "https", 2, "private-api.example", 6, "errors", 6, "5"],
+    / key-id /      100, 0x01020300,
+    / key-id /      100, 0x01020301,
+    / key-id /      100, 0x01020302
+]
+~~~
+
+# Contributors
+
+Klaus Hartke provided the text in {{sec-coral-examples}}.
 
 # Acknowledgments
 {: numbered="no"}
 
 Mark Nottingham and Erik Wilde, authors of RFC 7807.  Carsten Bormann and Klaus
 Hartke for discussion on the problem space and extensibility requirements.
-
