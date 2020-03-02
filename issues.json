@@ -34,7 +34,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -43,8 +43,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2020-02-28T18:19:29Z",
-    "updated_at": "2020-02-28T18:19:29Z",
-    "closed_at": null,
+    "updated_at": "2020-02-28T18:20:52Z",
+    "closed_at": "2020-02-28T18:20:52Z",
     "author_association": "OWNER",
     "pull_request": {
       "url": "https://api.github.com/repos/thomas-fossati/draft-coap-problem/pulls/12",
@@ -143,9 +143,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 2,
     "created_at": "2020-02-26T09:19:37Z",
-    "updated_at": "2020-02-26T09:24:22Z",
+    "updated_at": "2020-03-02T10:36:55Z",
     "closed_at": null,
     "author_association": "OWNER",
     "body": "@ektrah has kindly volunteered to provide a few CoRAL examples.  It'd be nice to couple them with those already in Appendix A so that we can have a 1:1 comparison."
