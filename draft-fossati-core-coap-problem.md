@@ -386,7 +386,10 @@ instance        <https://private-api.example/errors/5>
     / title /         2, "unknown key id",
     / response-code / 3, 132, / 4.04 Not Found /
     / detail /        4, "Key with id 0x01020304 not registered",
-    / instance /      5, [1, "https", 2, "private-api.example", 6, "errors", 6, "5"]
+    / instance /      5, [1, "https",
+                          2, "private-api.example",
+                          6, "errors",
+                          6, "5"]
 ]
 ~~~
 
@@ -416,7 +419,10 @@ ex:key-id       0x01020302
     / title /         2, "unknown key id",
     / response-code / 3, 132, / 4.04 Not Found /
     / detail /        4, "Key with id 0x01020304 not registered",
-    / instance /      5, [1, "https", 2, "private-api.example", 6, "errors", 6, "5"],
+    / instance /      5, [1, "https",
+                          2, "private-api.example",
+                          6, "errors",
+                          6, "5"],
     / key-id /      100, 0x01020300,
     / key-id /      100, 0x01020301,
     / key-id /      100, 0x01020302
