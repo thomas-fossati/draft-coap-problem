@@ -5,8 +5,8 @@
 CoRE Working Group                                            T. Fossati
 Internet-Draft                                                       ARM
 Intended status: Standards Track                              J. Jiménez
-Expires: 3 September 2020                                       Ericsson
-                                                            2 March 2020
+Expires: 4 September 2020                                       Ericsson
+                                                            3 March 2020
 
 
                      Problem Details For CoAP APIs
@@ -33,7 +33,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 September 2020.
+   This Internet-Draft will expire on 4 September 2020.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Fossati & Jiménez       Expires 3 September 2020                [Page 1]
+Fossati & Jiménez       Expires 4 September 2020                [Page 1]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -86,7 +86,7 @@ Table of Contents
        B.1.1.  Minimalist  . . . . . . . . . . . . . . . . . . . . .  11
        B.1.2.  Full-Fledged  . . . . . . . . . . . . . . . . . . . .  12
        B.1.3.  Full-Fledged with Extensions  . . . . . . . . . . . .  12
-   Appendix C.  Contributors . . . . . . . . . . . . . . . . . . . .  13
+   Contributors  . . . . . . . . . . . . . . . . . . . . . . . . . .  13
    Acknowledgments . . . . . . . . . . . . . . . . . . . . . . . . .  13
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  13
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Fossati & Jiménez       Expires 3 September 2020                [Page 2]
+Fossati & Jiménez       Expires 4 September 2020                [Page 2]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -165,7 +165,7 @@ Internet-Draft                CoAP Problem                    March 2020
 
 
 
-Fossati & Jiménez       Expires 3 September 2020                [Page 3]
+Fossati & Jiménez       Expires 4 September 2020                [Page 3]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -221,7 +221,7 @@ Internet-Draft                CoAP Problem                    March 2020
 
 
 
-Fossati & Jiménez       Expires 3 September 2020                [Page 4]
+Fossati & Jiménez       Expires 4 September 2020                [Page 4]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -277,7 +277,7 @@ Internet-Draft                CoAP Problem                    March 2020
 
 
 
-Fossati & Jiménez       Expires 3 September 2020                [Page 5]
+Fossati & Jiménez       Expires 4 September 2020                [Page 5]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -333,7 +333,7 @@ Internet-Draft                CoAP Problem                    March 2020
 
 
 
-Fossati & Jiménez       Expires 3 September 2020                [Page 6]
+Fossati & Jiménez       Expires 4 September 2020                [Page 6]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -389,7 +389,7 @@ Internet-Draft                CoAP Problem                    March 2020
 
 
 
-Fossati & Jiménez       Expires 3 September 2020                [Page 7]
+Fossati & Jiménez       Expires 4 September 2020                [Page 7]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -445,7 +445,7 @@ Internet-Draft                CoAP Problem                    March 2020
 
 
 
-Fossati & Jiménez       Expires 3 September 2020                [Page 8]
+Fossati & Jiménez       Expires 4 September 2020                [Page 8]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -501,7 +501,7 @@ Appendix A.  Examples
 
 
 
-Fossati & Jiménez       Expires 3 September 2020                [Page 9]
+Fossati & Jiménez       Expires 4 September 2020                [Page 9]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -557,7 +557,7 @@ A.3.  Full-Fledged with Extensions
 
 
 
-Fossati & Jiménez       Expires 3 September 2020               [Page 10]
+Fossati & Jiménez       Expires 4 September 2020               [Page 10]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -613,7 +613,7 @@ B.1.1.  Minimalist
 
 
 
-Fossati & Jiménez       Expires 3 September 2020               [Page 11]
+Fossati & Jiménez       Expires 4 September 2020               [Page 11]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -669,7 +669,7 @@ B.1.3.  Full-Fledged with Extensions
 
 
 
-Fossati & Jiménez       Expires 3 September 2020               [Page 12]
+Fossati & Jiménez       Expires 4 September 2020               [Page 12]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -690,7 +690,7 @@ Internet-Draft                CoAP Problem                    March 2020
        / key-id /      100, 0x01020302
    ]
 
-Appendix C.  Contributors
+Contributors
 
    Klaus Hartke provided the text in Appendix B.1.
 
@@ -725,4 +725,4 @@ Authors' Addresses
 
 
 
-Fossati & Jiménez       Expires 3 September 2020               [Page 13]
+Fossati & Jiménez       Expires 4 September 2020               [Page 13]
