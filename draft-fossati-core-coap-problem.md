@@ -430,6 +430,7 @@ ex:key-id       0x01020302
 ~~~
 
 # Contributors
+{: numbered="no"}
 
 Klaus Hartke provided the text in {{sec-coral-examples}}.
 
