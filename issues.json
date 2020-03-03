@@ -1,6 +1,60 @@
 [
 
   {
+    "url": "https://api.github.com/repos/thomas-fossati/draft-coap-problem/issues/13",
+    "repository_url": "https://api.github.com/repos/thomas-fossati/draft-coap-problem",
+    "labels_url": "https://api.github.com/repos/thomas-fossati/draft-coap-problem/issues/13/labels{/name}",
+    "comments_url": "https://api.github.com/repos/thomas-fossati/draft-coap-problem/issues/13/comments",
+    "events_url": "https://api.github.com/repos/thomas-fossati/draft-coap-problem/issues/13/events",
+    "html_url": "https://github.com/thomas-fossati/draft-coap-problem/pull/13",
+    "id": 573905748,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MzgyMzI2Nzg2",
+    "number": 13,
+    "title": "CoRAL examples from Klaus",
+    "user": {
+      "login": "thomas-fossati",
+      "id": 9195842,
+      "node_id": "MDQ6VXNlcjkxOTU4NDI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/9195842?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/thomas-fossati",
+      "html_url": "https://github.com/thomas-fossati",
+      "followers_url": "https://api.github.com/users/thomas-fossati/followers",
+      "following_url": "https://api.github.com/users/thomas-fossati/following{/other_user}",
+      "gists_url": "https://api.github.com/users/thomas-fossati/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/thomas-fossati/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/thomas-fossati/subscriptions",
+      "organizations_url": "https://api.github.com/users/thomas-fossati/orgs",
+      "repos_url": "https://api.github.com/users/thomas-fossati/repos",
+      "events_url": "https://api.github.com/users/thomas-fossati/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/thomas-fossati/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2020-03-02T11:19:52Z",
+    "updated_at": "2020-03-02T11:20:04Z",
+    "closed_at": "2020-03-02T11:20:04Z",
+    "author_association": "OWNER",
+    "pull_request": {
+      "url": "https://api.github.com/repos/thomas-fossati/draft-coap-problem/pulls/13",
+      "html_url": "https://github.com/thomas-fossati/draft-coap-problem/pull/13",
+      "diff_url": "https://github.com/thomas-fossati/draft-coap-problem/pull/13.diff",
+      "patch_url": "https://github.com/thomas-fossati/draft-coap-problem/pull/13.patch"
+    },
+    "body": "Closes #10"
+  },
+  {
     "url": "https://api.github.com/repos/thomas-fossati/draft-coap-problem/issues/12",
     "repository_url": "https://api.github.com/repos/thomas-fossati/draft-coap-problem",
     "labels_url": "https://api.github.com/repos/thomas-fossati/draft-coap-problem/issues/12/labels{/name}",
@@ -136,7 +190,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -145,8 +199,8 @@
     "milestone": null,
     "comments": 2,
     "created_at": "2020-02-26T09:19:37Z",
-    "updated_at": "2020-03-02T10:36:55Z",
-    "closed_at": null,
+    "updated_at": "2020-03-02T11:20:04Z",
+    "closed_at": "2020-03-02T11:20:04Z",
     "author_association": "OWNER",
     "body": "@ektrah has kindly volunteered to provide a few CoRAL examples.  It'd be nice to couple them with those already in Appendix A so that we can have a 1:1 comparison."
   },
