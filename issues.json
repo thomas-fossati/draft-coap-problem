@@ -1,6 +1,54 @@
 [
 
   {
+    "url": "https://api.github.com/repos/thomas-fossati/draft-coap-problem/issues/14",
+    "repository_url": "https://api.github.com/repos/thomas-fossati/draft-coap-problem",
+    "labels_url": "https://api.github.com/repos/thomas-fossati/draft-coap-problem/issues/14/labels{/name}",
+    "comments_url": "https://api.github.com/repos/thomas-fossati/draft-coap-problem/issues/14/comments",
+    "events_url": "https://api.github.com/repos/thomas-fossati/draft-coap-problem/issues/14/events",
+    "html_url": "https://github.com/thomas-fossati/draft-coap-problem/issues/14",
+    "id": 574626353,
+    "node_id": "MDU6SXNzdWU1NzQ2MjYzNTM=",
+    "number": 14,
+    "title": "add discussion on how private/public segregation works (see also RFC 6648)",
+    "user": {
+      "login": "thomas-fossati",
+      "id": 9195842,
+      "node_id": "MDQ6VXNlcjkxOTU4NDI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/9195842?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/thomas-fossati",
+      "html_url": "https://github.com/thomas-fossati",
+      "followers_url": "https://api.github.com/users/thomas-fossati/followers",
+      "following_url": "https://api.github.com/users/thomas-fossati/following{/other_user}",
+      "gists_url": "https://api.github.com/users/thomas-fossati/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/thomas-fossati/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/thomas-fossati/subscriptions",
+      "organizations_url": "https://api.github.com/users/thomas-fossati/orgs",
+      "repos_url": "https://api.github.com/users/thomas-fossati/repos",
+      "events_url": "https://api.github.com/users/thomas-fossati/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/thomas-fossati/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 2,
+    "created_at": "2020-03-03T12:13:57Z",
+    "updated_at": "2020-03-04T09:46:01Z",
+    "closed_at": null,
+    "author_association": "OWNER",
+    "body": "From this exchange with Carsten:\r\n\r\nT->C:\r\n```\r\nOn 03/03/2020, 10:02, \"Carsten Bormann\" <cabo@tzi.org> wrote:\r\n> Maybe you want to reference RFC 6648 where you mention that\r\n> transitioning namespaces is so easy?\r\n> (Which I admit I don’t quite understand; how do you make sure the\r\n> numbers are still available in that space?)\r\n\r\n\"type\" codepoints are meaningless without their parent \"ns\".  The idea\r\nis when you want to go public you ask the registry, which acts as a\r\ngiant lock around the namespace pool, to mint an unallocated \"ns\".\r\nRenumbering means that producers and consumers need to change the \"ns\"\r\nwhile retaining all their \"type\"s.  This is \"easy\" not in absolute\r\nterms, but in the sense that it minimises pain.\r\n\r\nIIUC, what you are saying is we need recommendations in the spirit of\r\nRFC 6648 to make the transition period (i.e., the time it takes to\r\nupdate producers and consumers to use the registered namespaces instead\r\nof \"X-\" ones) as short as possible?\r\n\r\nThe slight trouble is that the problem's consumers are on the \"passive\"\r\nend of the transaction, i.e., they don't have a way to incentivise the\r\nuse of a specific problem namespace.\r\n```\r\nC->T:\r\n```\r\nOn 2020-03-03, at 12:14, Thomas Fossati <Thomas.Fossati@arm.com> wrote:\r\n> IIUC, what you are saying is we need recommendations in the spirit of\r\n> RFC 6648 to make the transition period (i.e., the time it takes to\r\n> update producers and consumers to use the registered namespaces instead\r\n> of \"X-\" ones) as short as possible?\r\n\r\nMaybe at least expand a bit on the problem (English sense) and the solution\r\nyou envision.  You can save some verbiage by pointing to RFC 6648 for how\r\nthe obvious solution doesn’t work.\r\n```"
+  },
+  {
     "url": "https://api.github.com/repos/thomas-fossati/draft-coap-problem/issues/13",
     "repository_url": "https://api.github.com/repos/thomas-fossati/draft-coap-problem",
     "labels_url": "https://api.github.com/repos/thomas-fossati/draft-coap-problem/issues/13/labels{/name}",
