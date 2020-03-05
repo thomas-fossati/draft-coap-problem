@@ -826,7 +826,7 @@ table.left {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Fossati &amp; Jiménez</td>
-<td class="center">Expires 4 September 2020</td>
+<td class="center">Expires 6 September 2020</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -839,12 +839,12 @@ table.left {
 <dd class="internet-draft">draft-fossati-core-coap-problem-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2020-03-03" class="published">3 March 2020</time>
+<time datetime="2020-03-05" class="published">5 March 2020</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2020-09-04">4 September 2020</time></dd>
+<dd class="expires"><time datetime="2020-09-06">6 September 2020</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -884,7 +884,7 @@ response formats for CoAP APIs.<a href="#section-abstract-1" class="pilcrow">¶<
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 4 September 2020.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 6 September 2020.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1595,28 +1595,13 @@ optimized for constrained nodes;<a href="#section-b.1-3.2" class="pilcrow">¶</a
           <h3 id="name-minimalist-2">
 <a href="#section-b.1.1" class="section-number selfRef">B.1.1. </a><a href="#name-minimalist-2" class="section-name selfRef">Minimalist</a>
           </h3>
-<ul>
-<li id="section-b.1.1-1.1">Textual format:<a href="#section-b.1.1-1.1" class="pilcrow">¶</a>
-</li>
-</ul>
-<div class="artwork art-text alignLeft" id="section-b.1.1-2">
+<div class="artwork art-text alignLeft" id="section-b.1.1-1">
 <pre>
 #using &lt;http://example.org/vocabulary/problem-details#&gt;
 #using ex = &lt;http://vocabulary.private-api.example/#&gt;
 
 type            ex:unknown-key-id
-</pre><a href="#section-b.1.1-2" class="pilcrow">¶</a>
-</div>
-<ul>
-<li id="section-b.1.1-3.1">CBOR serialisation:<a href="#section-b.1.1-3.1" class="pilcrow">¶</a>
-</li>
-</ul>
-<div class="artwork art-text alignLeft" id="section-b.1.1-4">
-<pre>
-[
-    / type / 1, 5       / "unknown key id" semantics /
-]
-</pre><a href="#section-b.1.1-4" class="pilcrow">¶</a>
+</pre><a href="#section-b.1.1-1" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
@@ -1625,11 +1610,7 @@ type            ex:unknown-key-id
           <h3 id="name-full-fledged-2">
 <a href="#section-b.1.2" class="section-number selfRef">B.1.2. </a><a href="#name-full-fledged-2" class="section-name selfRef">Full-Fledged</a>
           </h3>
-<ul>
-<li id="section-b.1.2-1.1">Textual format:<a href="#section-b.1.2-1.1" class="pilcrow">¶</a>
-</li>
-</ul>
-<div class="artwork art-text alignLeft" id="section-b.1.2-2">
+<div class="artwork art-text alignLeft" id="section-b.1.2-1">
 <pre>
 #using &lt;http://example.org/vocabulary/problem-details#&gt;
 #using ex = &lt;http://vocabulary.private-api.example/#&gt;
@@ -1639,25 +1620,7 @@ title           "unknown key id"
 response-code   132
 detail          "Key with id 0x01020304 not registered"
 instance        &lt;https://private-api.example/errors/5&gt;
-</pre><a href="#section-b.1.2-2" class="pilcrow">¶</a>
-</div>
-<ul>
-<li id="section-b.1.2-3.1">CBOR serialisation:<a href="#section-b.1.2-3.1" class="pilcrow">¶</a>
-</li>
-</ul>
-<div class="artwork art-text alignLeft" id="section-b.1.2-4">
-<pre>
-[
-    / type /          1, 5,
-    / title /         2, "unknown key id",
-    / response-code / 3, 132, / 4.04 Not Found /
-    / detail /        4, "Key with id 0x01020304 not registered",
-    / instance /      5, [1, "https",
-                          2, "private-api.example",
-                          6, "errors",
-                          6, "5"]
-]
-</pre><a href="#section-b.1.2-4" class="pilcrow">¶</a>
+</pre><a href="#section-b.1.2-1" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
@@ -1666,11 +1629,7 @@ instance        &lt;https://private-api.example/errors/5&gt;
           <h3 id="name-full-fledged-with-extensions">
 <a href="#section-b.1.3" class="section-number selfRef">B.1.3. </a><a href="#name-full-fledged-with-extensions" class="section-name selfRef">Full-Fledged with Extensions</a>
           </h3>
-<ul>
-<li id="section-b.1.3-1.1">Textual format:<a href="#section-b.1.3-1.1" class="pilcrow">¶</a>
-</li>
-</ul>
-<div class="artwork art-text alignLeft" id="section-b.1.3-2">
+<div class="artwork art-text alignLeft" id="section-b.1.3-1">
 <pre>
 #using &lt;http://example.org/vocabulary/problem-details#&gt;
 #using ex = &lt;http://vocabulary.private-api.example/#&gt;
@@ -1683,28 +1642,7 @@ instance        &lt;https://private-api.example/errors/5&gt;
 ex:key-id       0x01020300
 ex:key-id       0x01020301
 ex:key-id       0x01020302
-</pre><a href="#section-b.1.3-2" class="pilcrow">¶</a>
-</div>
-<ul>
-<li id="section-b.1.3-3.1">CBOR serialisation:<a href="#section-b.1.3-3.1" class="pilcrow">¶</a>
-</li>
-</ul>
-<div class="artwork art-text alignLeft" id="section-b.1.3-4">
-<pre>
-[
-    / type /          1, 5,
-    / title /         2, "unknown key id",
-    / response-code / 3, 132, / 4.04 Not Found /
-    / detail /        4, "Key with id 0x01020304 not registered",
-    / instance /      5, [1, "https",
-                          2, "private-api.example",
-                          6, "errors",
-                          6, "5"],
-    / key-id /      100, 0x01020300,
-    / key-id /      100, 0x01020301,
-    / key-id /      100, 0x01020302
-]
-</pre><a href="#section-b.1.3-4" class="pilcrow">¶</a>
+</pre><a href="#section-b.1.3-1" class="pilcrow">¶</a>
 </div>
 </section>
 </div>

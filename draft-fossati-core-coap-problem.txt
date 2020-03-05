@@ -5,8 +5,8 @@
 CoRE Working Group                                            T. Fossati
 Internet-Draft                                                       ARM
 Intended status: Standards Track                              J. Jiménez
-Expires: 4 September 2020                                       Ericsson
-                                                            3 March 2020
+Expires: 6 September 2020                                       Ericsson
+                                                            5 March 2020
 
 
                      Problem Details For CoAP APIs
@@ -33,7 +33,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 September 2020.
+   This Internet-Draft will expire on 6 September 2020.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Fossati & Jiménez       Expires 4 September 2020                [Page 1]
+Fossati & Jiménez       Expires 6 September 2020                [Page 1]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -84,11 +84,11 @@ Table of Contents
    Appendix B.  Doing it with CoRAL  . . . . . . . . . . . . . . . .  11
      B.1.  Examples  . . . . . . . . . . . . . . . . . . . . . . . .  11
        B.1.1.  Minimalist  . . . . . . . . . . . . . . . . . . . . .  11
-       B.1.2.  Full-Fledged  . . . . . . . . . . . . . . . . . . . .  12
+       B.1.2.  Full-Fledged  . . . . . . . . . . . . . . . . . . . .  11
        B.1.3.  Full-Fledged with Extensions  . . . . . . . . . . . .  12
-   Contributors  . . . . . . . . . . . . . . . . . . . . . . . . . .  13
-   Acknowledgments . . . . . . . . . . . . . . . . . . . . . . . . .  13
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  13
+   Contributors  . . . . . . . . . . . . . . . . . . . . . . . . . .  12
+   Acknowledgments . . . . . . . . . . . . . . . . . . . . . . . . .  12
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  12
 
 1.  Introduction
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Fossati & Jiménez       Expires 4 September 2020                [Page 2]
+Fossati & Jiménez       Expires 6 September 2020                [Page 2]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -165,7 +165,7 @@ Internet-Draft                CoAP Problem                    March 2020
 
 
 
-Fossati & Jiménez       Expires 4 September 2020                [Page 3]
+Fossati & Jiménez       Expires 6 September 2020                [Page 3]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -221,7 +221,7 @@ Internet-Draft                CoAP Problem                    March 2020
 
 
 
-Fossati & Jiménez       Expires 4 September 2020                [Page 4]
+Fossati & Jiménez       Expires 6 September 2020                [Page 4]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -277,7 +277,7 @@ Internet-Draft                CoAP Problem                    March 2020
 
 
 
-Fossati & Jiménez       Expires 4 September 2020                [Page 5]
+Fossati & Jiménez       Expires 6 September 2020                [Page 5]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -333,7 +333,7 @@ Internet-Draft                CoAP Problem                    March 2020
 
 
 
-Fossati & Jiménez       Expires 4 September 2020                [Page 6]
+Fossati & Jiménez       Expires 6 September 2020                [Page 6]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -389,7 +389,7 @@ Internet-Draft                CoAP Problem                    March 2020
 
 
 
-Fossati & Jiménez       Expires 4 September 2020                [Page 7]
+Fossati & Jiménez       Expires 6 September 2020                [Page 7]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -445,7 +445,7 @@ Internet-Draft                CoAP Problem                    March 2020
 
 
 
-Fossati & Jiménez       Expires 4 September 2020                [Page 8]
+Fossati & Jiménez       Expires 6 September 2020                [Page 8]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -501,7 +501,7 @@ Appendix A.  Examples
 
 
 
-Fossati & Jiménez       Expires 4 September 2020                [Page 9]
+Fossati & Jiménez       Expires 6 September 2020                [Page 9]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -557,7 +557,7 @@ A.3.  Full-Fledged with Extensions
 
 
 
-Fossati & Jiménez       Expires 4 September 2020               [Page 10]
+Fossati & Jiménez       Expires 6 September 2020               [Page 10]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -603,30 +603,20 @@ B.1.  Examples
 
 B.1.1.  Minimalist
 
-   *  Textual format:
-
    #using <http://example.org/vocabulary/problem-details#>
    #using ex = <http://vocabulary.private-api.example/#>
 
    type            ex:unknown-key-id
 
+B.1.2.  Full-Fledged
 
 
 
-Fossati & Jiménez       Expires 4 September 2020               [Page 11]
+
+Fossati & Jiménez       Expires 6 September 2020               [Page 11]
 
 Internet-Draft                CoAP Problem                    March 2020
 
-
-   *  CBOR serialisation:
-
-   [
-       / type / 1, 5       / "unknown key id" semantics /
-   ]
-
-B.1.2.  Full-Fledged
-
-   *  Textual format:
 
    #using <http://example.org/vocabulary/problem-details#>
    #using ex = <http://vocabulary.private-api.example/#>
@@ -637,22 +627,7 @@ B.1.2.  Full-Fledged
    detail          "Key with id 0x01020304 not registered"
    instance        <https://private-api.example/errors/5>
 
-   *  CBOR serialisation:
-
-   [
-       / type /          1, 5,
-       / title /         2, "unknown key id",
-       / response-code / 3, 132, / 4.04 Not Found /
-       / detail /        4, "Key with id 0x01020304 not registered",
-       / instance /      5, [1, "https",
-                             2, "private-api.example",
-                             6, "errors",
-                             6, "5"]
-   ]
-
 B.1.3.  Full-Fledged with Extensions
-
-   *  Textual format:
 
    #using <http://example.org/vocabulary/problem-details#>
    #using ex = <http://vocabulary.private-api.example/#>
@@ -665,30 +640,6 @@ B.1.3.  Full-Fledged with Extensions
    ex:key-id       0x01020300
    ex:key-id       0x01020301
    ex:key-id       0x01020302
-
-
-
-
-Fossati & Jiménez       Expires 4 September 2020               [Page 12]
-
-Internet-Draft                CoAP Problem                    March 2020
-
-
-   *  CBOR serialisation:
-
-   [
-       / type /          1, 5,
-       / title /         2, "unknown key id",
-       / response-code / 3, 132, / 4.04 Not Found /
-       / detail /        4, "Key with id 0x01020304 not registered",
-       / instance /      5, [1, "https",
-                             2, "private-api.example",
-                             6, "errors",
-                             6, "5"],
-       / key-id /      100, 0x01020300,
-       / key-id /      100, 0x01020301,
-       / key-id /      100, 0x01020302
-   ]
 
 Contributors
 
@@ -718,11 +669,4 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-
-Fossati & Jiménez       Expires 4 September 2020               [Page 13]
+Fossati & Jiménez       Expires 6 September 2020               [Page 12]
