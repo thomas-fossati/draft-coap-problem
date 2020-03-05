@@ -346,8 +346,6 @@ The main differences are:
 
 ### Minimalist
 
-* Textual format:
-
 ~~~
 #using <http://example.org/vocabulary/problem-details#>
 #using ex = <http://vocabulary.private-api.example/#>
@@ -355,17 +353,7 @@ The main differences are:
 type            ex:unknown-key-id
 ~~~
 
-* CBOR serialisation:
-
-~~~
-[
-    / type / 1, 5       / "unknown key id" semantics /
-]
-~~~
-
 ### Full-Fledged
-
-* Textual format:
 
 ~~~
 #using <http://example.org/vocabulary/problem-details#>
@@ -378,24 +366,7 @@ detail          "Key with id 0x01020304 not registered"
 instance        <https://private-api.example/errors/5>
 ~~~
 
-* CBOR serialisation:
-
-~~~
-[
-    / type /          1, 5,
-    / title /         2, "unknown key id",
-    / response-code / 3, 132, / 4.04 Not Found /
-    / detail /        4, "Key with id 0x01020304 not registered",
-    / instance /      5, [1, "https",
-                          2, "private-api.example",
-                          6, "errors",
-                          6, "5"]
-]
-~~~
-
 ### Full-Fledged with Extensions
-
-* Textual format:
 
 ~~~
 #using <http://example.org/vocabulary/problem-details#>
@@ -409,24 +380,6 @@ instance        <https://private-api.example/errors/5>
 ex:key-id       0x01020300
 ex:key-id       0x01020301
 ex:key-id       0x01020302
-~~~
-
-* CBOR serialisation:
-
-~~~
-[
-    / type /          1, 5,
-    / title /         2, "unknown key id",
-    / response-code / 3, 132, / 4.04 Not Found /
-    / detail /        4, "Key with id 0x01020304 not registered",
-    / instance /      5, [1, "https",
-                          2, "private-api.example",
-                          6, "errors",
-                          6, "5"],
-    / key-id /      100, 0x01020300,
-    / key-id /      100, 0x01020301,
-    / key-id /      100, 0x01020302
-]
 ~~~
 
 # Contributors
