@@ -5,8 +5,9 @@
 CoRE Working Group                                            T. Fossati
 Internet-Draft                                                       ARM
 Intended status: Standards Track                              J. Jiménez
-Expires: 6 September 2020                                       Ericsson
-                                                            5 March 2020
+Expires: 1 October 2020                                        K. Hartke
+                                                                Ericsson
+                                                           30 March 2020
 
 
                      Problem Details For CoAP APIs
@@ -33,7 +34,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 6 September 2020.
+   This Internet-Draft will expire on 1 October 2020.
 
 Copyright Notice
 
@@ -52,8 +53,7 @@ Copyright Notice
 
 
 
-
-Fossati & Jiménez       Expires 6 September 2020                [Page 1]
+Fossati, et al.          Expires 1 October 2020                 [Page 1]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Fossati & Jiménez       Expires 6 September 2020                [Page 2]
+Fossati, et al.          Expires 1 October 2020                 [Page 2]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -165,7 +165,7 @@ Internet-Draft                CoAP Problem                    March 2020
 
 
 
-Fossati & Jiménez       Expires 6 September 2020                [Page 3]
+Fossati, et al.          Expires 1 October 2020                 [Page 3]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -221,7 +221,7 @@ Internet-Draft                CoAP Problem                    March 2020
 
 
 
-Fossati & Jiménez       Expires 6 September 2020                [Page 4]
+Fossati, et al.          Expires 1 October 2020                 [Page 4]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -277,7 +277,7 @@ Internet-Draft                CoAP Problem                    March 2020
 
 
 
-Fossati & Jiménez       Expires 6 September 2020                [Page 5]
+Fossati, et al.          Expires 1 October 2020                 [Page 5]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -333,7 +333,7 @@ Internet-Draft                CoAP Problem                    March 2020
 
 
 
-Fossati & Jiménez       Expires 6 September 2020                [Page 6]
+Fossati, et al.          Expires 1 October 2020                 [Page 6]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -389,7 +389,7 @@ Internet-Draft                CoAP Problem                    March 2020
 
 
 
-Fossati & Jiménez       Expires 6 September 2020                [Page 7]
+Fossati, et al.          Expires 1 October 2020                 [Page 7]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -445,7 +445,7 @@ Internet-Draft                CoAP Problem                    March 2020
 
 
 
-Fossati & Jiménez       Expires 6 September 2020                [Page 8]
+Fossati, et al.          Expires 1 October 2020                 [Page 8]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -475,14 +475,14 @@ Internet-Draft                CoAP Problem                    March 2020
    [I-D.ietf-core-coral]
               Hartke, K., "The Constrained RESTful Application Language
               (CoRAL)", Work in Progress, Internet-Draft, draft-ietf-
-              core-coral-02, 8 January 2020, <http://www.ietf.org/
-              internet-drafts/draft-ietf-core-coral-02.txt>.
+              core-coral-03, 9 March 2020, <http://www.ietf.org/
+              internet-drafts/draft-ietf-core-coral-03.txt>.
 
    [I-D.ietf-core-href]
               Hartke, K., "Constrained Resource Identifiers", Work in
-              Progress, Internet-Draft, draft-ietf-core-href-02, 8
-              January 2020, <http://www.ietf.org/internet-drafts/draft-
-              ietf-core-href-02.txt>.
+              Progress, Internet-Draft, draft-ietf-core-href-03, 9 March
+              2020, <http://www.ietf.org/internet-drafts/draft-ietf-
+              core-href-03.txt>.
 
    [RFC7807]  Nottingham, M. and E. Wilde, "Problem Details for HTTP
               APIs", RFC 7807, DOI 10.17487/RFC7807, March 2016,
@@ -501,7 +501,7 @@ Appendix A.  Examples
 
 
 
-Fossati & Jiménez       Expires 6 September 2020                [Page 9]
+Fossati, et al.          Expires 1 October 2020                 [Page 9]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -557,7 +557,7 @@ A.3.  Full-Fledged with Extensions
 
 
 
-Fossati & Jiménez       Expires 6 September 2020               [Page 10]
+Fossati, et al.          Expires 1 October 2020                [Page 10]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -613,7 +613,7 @@ B.1.2.  Full-Fledged
 
 
 
-Fossati & Jiménez       Expires 6 September 2020               [Page 11]
+Fossati, et al.          Expires 1 October 2020                [Page 11]
 
 Internet-Draft                CoAP Problem                    March 2020
 
@@ -669,4 +669,60 @@ Authors' Addresses
 
 
 
-Fossati & Jiménez       Expires 6 September 2020               [Page 12]
+Fossati, et al.          Expires 1 October 2020                [Page 12]
+
+Internet-Draft                CoAP Problem                    March 2020
+
+
+   Klaus Hartke
+   Ericsson
+
+   Email: klaus.hartke@ericsson.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Fossati, et al.          Expires 1 October 2020                [Page 13]
