@@ -24,6 +24,12 @@ author:
     organization: "Ericsson"
     email: jaime@iki.fi
 
+ -
+    ins: "K. Hartke"
+    name: "Klaus Hartke"
+    organization: "Ericsson"
+    email: klaus.hartke@ericsson.com
+
 --- abstract
 
 This document defines a "problem detail" as a way to carry machine-readable
