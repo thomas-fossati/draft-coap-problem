@@ -111,7 +111,7 @@ The definition in CoRAL format {{!RFC8610}} of a Problem Details for CoAP is
 provided in {{fig-cddl}}.
 
 ~~~
-{::include coap-problem-details.coral}
+{::include coap-problem-details.cddl}
 ~~~
 {: #fig-cddl title="CoAP Problem Details: CDDL Definition"}
 
