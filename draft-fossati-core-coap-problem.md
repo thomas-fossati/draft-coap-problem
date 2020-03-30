@@ -43,9 +43,10 @@ response formats for CoAP APIs.
 CoAP {{!RFC7252}} response codes are sometimes not sufficient to convey enough
 information about an error to be helpful.
 
-This specification defines a simple and extensible CBOR {{!RFC7049}} format to
-suit this purpose.  It is designed to be reused by CoAP APIs, which can
-identify distinct "problem types" specific to their needs.
+This specification defines a simple and extensible CoRAL
+{{!I-D.ietf-core-coral}} document to suit this purpose.  It is designed to be
+reused by CoAP APIs, which can identify distinct "problem types" specific to
+their needs.
 
 Thus, API clients can be informed of both the high-level error class (using the
 response code) and the finer-grained details of the problem (using this
@@ -60,7 +61,8 @@ defined in {{?RFC7807}}.
 
 # CoAP Problem Details Definition
 
-A CoAP Problem Details is encoded as a CBOR map with the following members:
+A CoAP Problem Details is encoded as a CoRAL document with the following
+elements:
 
 * "ns" (int) - A code-point that defines the namespace under which the "type"
   field needs to be interpreted.  This is a mandatory field.
@@ -105,7 +107,7 @@ relative to the document's base URI, as per {{!RFC3986}}, Section 5.
 
 ## CDDL
 
-The definition in CDDL format {{!RFC8610}} of a Problem Details for CoAP is
+The definition in CoRAL format {{!RFC8610}} of a Problem Details for CoAP is
 provided in {{fig-cddl}}.
 
 ~~~
@@ -254,11 +256,10 @@ The registry is initially empty.
 # Examples
 {: #sec-examples}
 
-This section presents a series of examples in CBOR diagnostic notation
-{{RFC7049}}.  The examples are fictitious.  No identification with actual
-products is intended or should be inferred.  All examples involve the same CoAP
-problem type (5, with pretend semantics "unknown key id") defined in the
-private namespace "-33455".
+This section presents a series of examples using CoRAL textual format.  The
+examples are fictitious.  No identification with actual products is intended or
+should be inferred.  All examples involve the same CoAP problem type with
+pretend semantics "unknown key id" defined in a private namespace "ex".
 
 <!--
 The reader can think of it as a distinct error condition that might happen in a
@@ -275,10 +276,10 @@ precise knowledge of the semantics associated with the namespace and type
 code-points.
 
 ~~~
-{
-    / ns /   0: -33455, / a private namespace /
-    / type / 1: 5       / "unknown key id" semantics /
-}
+#using <http://example.org/vocabulary/problem-details#>
+#using ex = <http://vocabulary.private-api.example/#>
+
+type            ex:unknown-key-id
 ~~~
 {: #fig-private-ns-minimal title="Private Namespace: Minimal Payload"}
 
@@ -292,14 +293,14 @@ the error condition, the associated CoAP response code, and even the URL
 describing the specific error instance.
 
 ~~~
-{
-    / ns /            0: -33455,
-    / type /          1: 5,
-    / title /         2: "unknown key id",
-    / response-code / 3: 132, / 4.04 Not Found /
-    / detail /        4: "Key with id 0x01020304 not registered",
-    / instance /      5: 32("https://private-api.example/errors/5")
-}
+#using <http://example.org/vocabulary/problem-details#>
+#using ex = <http://vocabulary.private-api.example/#>
+
+type            ex:unknown-key-id
+title           "unknown key id"
+response-code   132
+detail          "Key with id 0x01020304 not registered"
+instance        <https://private-api.example/errors/5>
 ~~~
 {: #fig-private-ns-full title="Private Namespace: Full Payload"}
 
@@ -311,68 +312,6 @@ specific information - in this made up scenario a list of possible key ids is
 provided to the receiving end.  This richer format might be enabled for debug
 or tracing purposes, possibly on a per-transaction basis.  Note that the map
 index for key-ids key is minted from the private (negative) space.
-
-~~~
-{
-    / ns /            0: -33455,
-    / type /          1: 5,
-    / title /         2: "unknown key id",
-    / response-code / 3: 132, / 4.04 Not Found /
-    / detail /        4: "Key with id 0x01020304 not registered",
-    / instance /      5: 32("https://private-api.example/errors/5"),
-    / key-ids /       -1: [ 0x01020300, 0x01020301, 0x01020302 ]
-}
-~~~
-{: #fig-private-ns-full-ext title="Private Namespace: Full Payload and Extension"}
-
-# Doing it with CoRAL
-
-CoRAL {{?I-D.ietf-core-coral}} provides a way to address the same problem that
-is solved by the format described in this document.  (Refer to section 5.2.3 of
-{{?I-D.ietf-core-coral}} for initial discussion around CoRAL Error Responses.)
-
-By abstracting the serialization aspects (CBOR, JSON, etc.), the transport
-protocol (HTTP, CoAP, etc.) and its response codes, while also providing
-compression of the involved resources, CoRAL can potentially support a more
-general solution than the one discussed here, in particular one that also
-supersedes {{?RFC7807}}.
-
-## Examples
-{: #sec-coral-examples}
-
-In this section, the examples from {{sec-examples}} are converted to CoRAL.
-
-The main differences are:
-
-* CoRAL is using an array of alternating keys and values instead of a map with
-  array values to get a multi-dict;
-* CoRAL uses {{?I-D.ietf-core-href}} as an alternative to URIs that is
-  optimized for constrained nodes;
-* CoRAL uses its own code-point allocation scheme.
-
-### Minimalist
-
-~~~
-#using <http://example.org/vocabulary/problem-details#>
-#using ex = <http://vocabulary.private-api.example/#>
-
-type            ex:unknown-key-id
-~~~
-
-### Full-Fledged
-
-~~~
-#using <http://example.org/vocabulary/problem-details#>
-#using ex = <http://vocabulary.private-api.example/#>
-
-type            ex:unknown-key-id
-title           "unknown key id"
-response-code   132
-detail          "Key with id 0x01020304 not registered"
-instance        <https://private-api.example/errors/5>
-~~~
-
-### Full-Fledged with Extensions
 
 ~~~
 #using <http://example.org/vocabulary/problem-details#>
@@ -387,14 +326,10 @@ ex:key-id       0x01020300
 ex:key-id       0x01020301
 ex:key-id       0x01020302
 ~~~
-
-# Contributors
-{: numbered="no"}
-
-Klaus Hartke provided the text in {{sec-coral-examples}}.
+{: #fig-private-ns-full-ext title="Private Namespace: Full Payload and Extension"}
 
 # Acknowledgments
 {: numbered="no"}
 
-Mark Nottingham and Erik Wilde, authors of RFC 7807.  Carsten Bormann and Klaus
-Hartke for discussion on the problem space and extensibility requirements.
+Mark Nottingham and Erik Wilde, authors of RFC 7807.  Carsten Bormann for
+discussion on the problem space and extensibility requirements.
