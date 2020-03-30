@@ -1,0 +1,400 @@
+{
+  "magic": "B8n2c@e8kvfx",
+  "timestamp": "2020-03-30T10:19:12.323040+00:00",
+  "repo": "thomas-fossati/draft-coap-problem",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [
+    {
+      "number": 1,
+      "id": "MDU6SXNzdWU1MTY3NTk0ODU=",
+      "title": "Carsten's notes on extensibility",
+      "url": "https://github.com/thomas-fossati/draft-coap-problem/issues/1",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "- How do we curate the \u201ctype\u201d code point space?\r\n- How do we curate the extension code point space?\r\n- We have registries, but what should the policies be?\r\n- With a large private use space, how do we avoid x-dash (RFC 6648)?",
+      "createdAt": "2019-11-02T23:41:38Z",
+      "updatedAt": "2019-11-05T17:34:18Z",
+      "closedAt": "2019-11-05T17:34:18Z",
+      "comments": []
+    },
+    {
+      "number": 2,
+      "id": "MDU6SXNzdWU1MTY3NTk2MDE=",
+      "title": "Casten's misc comments",
+      "url": "https://github.com/thomas-fossati/draft-coap-problem/issues/2",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "- By making a response code somewhat central to this format, this seems to perpetuate the problem that people want to use CoAP response codes to indicate application error classes.\r\n- I don\u2019t understand the text about \u201cdetail\u201d (The client is a thermostat or some such.):\r\n```\r\n           The \"detail\" member, if present, ought to focus on helping the client\r\n           correct the problem, rather than giving debugging information.\r\n           Consumers SHOULD NOT parse the \u201cdetail\" member for information;\r\n```\r\n\r\n",
+      "createdAt": "2019-11-02T23:43:15Z",
+      "updatedAt": "2019-12-08T00:33:41Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 3,
+      "id": "MDU6SXNzdWU1MzQ0MzMyMjQ=",
+      "title": "CBOR example",
+      "url": "https://github.com/thomas-fossati/draft-coap-problem/issues/3",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Provide working examples of both base and extended problems in CBOR diagnostic format.\r\nConsider CoRAL as well.",
+      "createdAt": "2019-12-07T18:08:58Z",
+      "updatedAt": "2020-02-25T14:56:38Z",
+      "closedAt": "2020-02-25T14:56:38Z",
+      "comments": []
+    },
+    {
+      "number": 4,
+      "id": "MDU6SXNzdWU1MzQ0MzMzNjY=",
+      "title": "compare with CoRAL",
+      "url": "https://github.com/thomas-fossati/draft-coap-problem/issues/4",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Provide some discussion on solving the same problem using CoRAL.",
+      "createdAt": "2019-12-07T18:10:21Z",
+      "updatedAt": "2020-02-26T09:16:50Z",
+      "closedAt": "2020-02-26T09:16:50Z",
+      "comments": [
+        {
+          "author": "ektrah",
+          "authorAssociation": "NONE",
+          "body": "I've put some initial building block here: https://tools.ietf.org/html/draft-ietf-core-coral-02#section-5.2",
+          "createdAt": "2020-02-14T17:18:19Z",
+          "updatedAt": "2020-02-14T17:18:19Z"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "id": "MDU6SXNzdWU1NzA1NDM1MDQ=",
+      "title": "no need for a global namespace",
+      "url": "https://github.com/thomas-fossati/draft-coap-problem/issues/7",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "The question is: do we actually need a global namespace (i.e., 0)?  What's its use?  It'd seem that its purpose is defining a \"universal\" semantics for problem types -- one which all receivers need to understand. But this looks backwards wrt to the \"spirit\" of the Problem construct, which is defined per API rather than globally.  Proposal is to drop the initial registration of ns=0 and let it be a namespace just like another.",
+      "createdAt": "2020-02-25T12:43:17Z",
+      "updatedAt": "2020-02-25T13:32:44Z",
+      "closedAt": "2020-02-25T13:32:44Z",
+      "comments": []
+    },
+    {
+      "number": 10,
+      "id": "MDU6SXNzdWU1NzExODQyNzk=",
+      "title": "CoRAL examples",
+      "url": "https://github.com/thomas-fossati/draft-coap-problem/issues/10",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "@ektrah has kindly volunteered to provide a few CoRAL examples.  It'd be nice to couple them with those already in Appendix A so that we can have a 1:1 comparison.",
+      "createdAt": "2020-02-26T09:19:37Z",
+      "updatedAt": "2020-03-02T11:20:04Z",
+      "closedAt": "2020-03-02T11:20:04Z",
+      "comments": [
+        {
+          "author": "ektrah",
+          "authorAssociation": "NONE",
+          "body": "Here are the examples from appendix A in the current editor's draft converted to CoRAL in CBOR:\r\n\r\nMinimalist\r\n\r\n```\r\n[\r\n    / type / 1, 5       / \"unknown key id\" semantics /\r\n]\r\n```\r\n\r\nFull-Fledged\r\n\r\n```\r\n[\r\n    / type /          1, 5,\r\n    / title /         2, \"unknown key id\",\r\n    / response-code / 3, 132, / 4.04 Not Found /\r\n    / detail /        4, \"Key with id 0x01020304 not registered\",\r\n    / instance /      5, [1, \"https\", 2, \"private-api.example\", 6, \"errors\", 6, \"5\"]\r\n]\r\n```\r\n\r\nFull-Fledged with Extensions\r\n\r\n```\r\n[\r\n    / type /          1, 5,\r\n    / title /         2, \"unknown key id\",\r\n    / response-code / 3, 132, / 4.04 Not Found /\r\n    / detail /        4, \"Key with id 0x01020304 not registered\",\r\n    / instance /      5, [1, \"https\", 2, \"private-api.example\", 6, \"errors\", 6, \"5\"],\r\n    / key-id /      100, 0x01020300,\r\n    / key-id /      100, 0x01020301,\r\n    / key-id /      100, 0x01020302\r\n]\r\n```\r\n\r\nThe main differences are:\r\n* CoRAL is using an array of alternating keys and values instead of a map with array values to get a multi-dict.\r\n* CoRAL uses draft-ietf-core-href as an alternative to URIs that is optimized for constrained nodes.\r\n* CoRAL uses its own code-point allocation scheme. (I've kept the same code-point values to ease comparison though, except for the negative ones.)",
+          "createdAt": "2020-03-02T10:35:57Z",
+          "updatedAt": "2020-03-02T10:35:57Z"
+        },
+        {
+          "author": "ektrah",
+          "authorAssociation": "NONE",
+          "body": "Here are the same examples in the (much nicer) textual format:\r\n\r\nMinimalist\r\n\r\n```turtle\r\n#using <http://example.org/vocabulary/problem-details#>\r\n#using ex = <http://vocabulary.private-api.example/#>\r\n\r\ntype            ex:unknown-key-id\r\n```\r\n\r\nFull-Fledged\r\n\r\n```turtle\r\n#using <http://example.org/vocabulary/problem-details#>\r\n#using ex = <http://vocabulary.private-api.example/#>\r\n\r\ntype            ex:unknown-key-id\r\ntitle           \"unknown key id\"\r\nresponse-code   132\r\ndetail          \"Key with id 0x01020304 not registered\"\r\ninstance        <https://private-api.example/errors/5>\r\n```\r\n\r\nFull-Fledged with Extensions\r\n\r\n```turtle\r\n#using <http://example.org/vocabulary/problem-details#>\r\n#using ex = <http://vocabulary.private-api.example/#>\r\n\r\ntype            5\r\ntitle           \"unknown key id\"\r\nresponse-code   132\r\ndetail          \"Key with id 0x01020304 not registered\"\r\ninstance        <https://private-api.example/errors/5>\r\nex:key-id       0x01020300\r\nex:key-id       0x01020301\r\nex:key-id       0x01020302\r\n```\r\n",
+          "createdAt": "2020-03-02T10:36:54Z",
+          "updatedAt": "2020-03-02T10:36:54Z"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "id": "MDU6SXNzdWU1NzI5MDU4OTU=",
+      "title": "mention problem w/ sub-status",
+      "url": "https://github.com/thomas-fossati/draft-coap-problem/issues/11",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "@jaimejim:  The intro maybe should mention why using CoAP/HTTP sub-status error codes was too limited (e.g., they refer to a handful of server errors only, lack of specific granularity related to the domain knowledge, scaling the sub-status code to all cases...)",
+      "createdAt": "2020-02-28T17:41:25Z",
+      "updatedAt": "2020-02-28T17:41:25Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 14,
+      "id": "MDU6SXNzdWU1NzQ2MjYzNTM=",
+      "title": "add discussion on how private/public segregation works (see also RFC 6648)",
+      "url": "https://github.com/thomas-fossati/draft-coap-problem/issues/14",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "From this exchange with Carsten:\r\n\r\nT->C:\r\n```\r\nOn 03/03/2020, 10:02, \"Carsten Bormann\" <cabo@tzi.org> wrote:\r\n> Maybe you want to reference RFC 6648 where you mention that\r\n> transitioning namespaces is so easy?\r\n> (Which I admit I don\u2019t quite understand; how do you make sure the\r\n> numbers are still available in that space?)\r\n\r\n\"type\" codepoints are meaningless without their parent \"ns\".  The idea\r\nis when you want to go public you ask the registry, which acts as a\r\ngiant lock around the namespace pool, to mint an unallocated \"ns\".\r\nRenumbering means that producers and consumers need to change the \"ns\"\r\nwhile retaining all their \"type\"s.  This is \"easy\" not in absolute\r\nterms, but in the sense that it minimises pain.\r\n\r\nIIUC, what you are saying is we need recommendations in the spirit of\r\nRFC 6648 to make the transition period (i.e., the time it takes to\r\nupdate producers and consumers to use the registered namespaces instead\r\nof \"X-\" ones) as short as possible?\r\n\r\nThe slight trouble is that the problem's consumers are on the \"passive\"\r\nend of the transaction, i.e., they don't have a way to incentivise the\r\nuse of a specific problem namespace.\r\n```\r\nC->T:\r\n```\r\nOn 2020-03-03, at 12:14, Thomas Fossati <Thomas.Fossati@arm.com> wrote:\r\n> IIUC, what you are saying is we need recommendations in the spirit of\r\n> RFC 6648 to make the transition period (i.e., the time it takes to\r\n> update producers and consumers to use the registered namespaces instead\r\n> of \"X-\" ones) as short as possible?\r\n\r\nMaybe at least expand a bit on the problem (English sense) and the solution\r\nyou envision.  You can save some verbiage by pointing to RFC 6648 for how\r\nthe obvious solution doesn\u2019t work.\r\n```",
+      "createdAt": "2020-03-03T12:13:57Z",
+      "updatedAt": "2020-03-04T09:46:01Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "In particular, the analysis in [Appendix B of RFC 6648]( https://tools.ietf.org/html/rfc6648#appendix-B) is relevant. ",
+          "createdAt": "2020-03-03T12:21:23Z",
+          "updatedAt": "2020-03-03T12:21:23Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "I guess we should say that, contrary to X-, we define a private->public migration plan.  We need to discuss though how that strategy would work in practice.",
+          "createdAt": "2020-03-04T09:46:01Z",
+          "updatedAt": "2020-03-04T09:46:01Z"
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "id": "MDU6SXNzdWU1OTAxNjgwMDM=",
+      "title": "CoRAL-ise",
+      "url": "https://github.com/thomas-fossati/draft-coap-problem/issues/15",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "As per discussion with Jaime and Klaus:\r\n-  Remove CBOR\r\n- Move CoRAL examples from appendix\r\n- Code point registration",
+      "createdAt": "2020-03-30T10:14:36Z",
+      "updatedAt": "2020-03-30T10:14:36Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 16,
+      "id": "MDU6SXNzdWU1OTAxNjgzMzA=",
+      "title": "add Klaus",
+      "url": "https://github.com/thomas-fossati/draft-coap-problem/issues/16",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "As per discussion with Jaime and Klaus:\r\n- add Klaus to the authors pool",
+      "createdAt": "2020-03-30T10:15:04Z",
+      "updatedAt": "2020-03-30T10:15:04Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
+  "pulls": [
+    {
+      "number": 5,
+      "id": "MDExOlB1bGxSZXF1ZXN0MzczMTE1ODYy",
+      "title": "Adding Jaime as co-author",
+      "url": "https://github.com/thomas-fossati/draft-coap-problem/pull/5",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Adding @jaimejim as co-author.",
+      "createdAt": "2020-02-10T12:48:12Z",
+      "updatedAt": "2020-02-10T12:55:01Z",
+      "closedAt": "2020-02-10T12:54:51Z",
+      "mergedAt": "2020-02-10T12:54:51Z",
+      "mergedBy": "thomas-fossati",
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 6,
+      "id": "MDExOlB1bGxSZXF1ZXN0Mzc5MTI3MzQ3",
+      "title": "adding examples",
+      "url": "https://github.com/thomas-fossati/draft-coap-problem/pull/6",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [
+        "thomas-fossati"
+      ],
+      "labels": [],
+      "body": "Fixes #3 ",
+      "createdAt": "2020-02-24T17:58:19Z",
+      "updatedAt": "2020-02-25T14:56:39Z",
+      "closedAt": "2020-02-25T14:56:39Z",
+      "mergedAt": "2020-02-25T14:56:38Z",
+      "mergedBy": "thomas-fossati",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "@jaimejim please have a look",
+          "createdAt": "2020-02-24T17:59:08Z",
+          "updatedAt": "2020-02-24T17:59:08Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 8,
+      "id": "MDExOlB1bGxSZXF1ZXN0Mzc5NTc4OTg1",
+      "title": "drop the idea of a global namespace",
+      "url": "https://github.com/thomas-fossati/draft-coap-problem/pull/8",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Closes #7",
+      "createdAt": "2020-02-25T13:23:51Z",
+      "updatedAt": "2020-02-25T13:32:44Z",
+      "closedAt": "2020-02-25T13:32:44Z",
+      "mergedAt": "2020-02-25T13:32:44Z",
+      "mergedBy": "thomas-fossati",
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 9,
+      "id": "MDExOlB1bGxSZXF1ZXN0Mzc5NjY4ODk4",
+      "title": "Add consideration about solving the same problem with CoRAL",
+      "url": "https://github.com/thomas-fossati/draft-coap-problem/pull/9",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Closes #4",
+      "createdAt": "2020-02-25T15:58:20Z",
+      "updatedAt": "2020-02-26T09:16:50Z",
+      "closedAt": "2020-02-26T09:16:50Z",
+      "mergedAt": "2020-02-26T09:16:50Z",
+      "mergedBy": "thomas-fossati",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "@ektrah could you please have review this?  cheers!",
+          "createdAt": "2020-02-25T15:59:19Z",
+          "updatedAt": "2020-02-25T15:59:19Z"
+        },
+        {
+          "author": "ektrah",
+          "authorAssociation": "NONE",
+          "body": "> Note that at the time of this writing, a CoRAL based solution has not been\r\nfleshed out yet.\r\n\r\nI don\u2019t like this part \ud83d\ude01. Otherwise, this looks good. \r\n\r\nLet me try to find some time for helping to create some examples.",
+          "createdAt": "2020-02-25T16:15:33Z",
+          "updatedAt": "2020-02-25T16:16:41Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "> > Note that at the time of this writing, a CoRAL based solution has not been\r\n> > fleshed out yet.\r\n> \r\n> I don\u2019t like this part \ud83d\ude01. Otherwise, this looks good.\r\n \r\nIs it because it's not an accurate assessment?  If so, I will drop that.\r\n\r\n> Let me try to find some time for helping to create some examples.\r\n\r\nThat'd be awesome!\r\n",
+          "createdAt": "2020-02-25T16:42:39Z",
+          "updatedAt": "2020-02-25T16:42:39Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 12,
+      "id": "MDExOlB1bGxSZXF1ZXN0MzgxNTI3NjA0",
+      "title": "typo",
+      "url": "https://github.com/thomas-fossati/draft-coap-problem/pull/12",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2020-02-28T18:19:29Z",
+      "updatedAt": "2020-02-28T18:20:52Z",
+      "closedAt": "2020-02-28T18:20:52Z",
+      "mergedAt": "2020-02-28T18:20:52Z",
+      "mergedBy": "thomas-fossati",
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 13,
+      "id": "MDExOlB1bGxSZXF1ZXN0MzgyMzI2Nzg2",
+      "title": "CoRAL examples from Klaus",
+      "url": "https://github.com/thomas-fossati/draft-coap-problem/pull/13",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Closes #10",
+      "createdAt": "2020-03-02T11:19:52Z",
+      "updatedAt": "2020-03-02T11:20:04Z",
+      "closedAt": "2020-03-02T11:20:04Z",
+      "mergedAt": "2020-03-02T11:20:04Z",
+      "mergedBy": "thomas-fossati",
+      "comments": [],
+      "reviews": []
+    }
+  ]
+}
